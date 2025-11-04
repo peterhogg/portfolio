@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-white text-lg font-bold">
-          My Portfolio
+          Peter Hoggarth
         </Link>
         <div className="flex space-x-4">
           <Link href="/" className="text-gray-300 hover:text-white">
@@ -14,6 +14,12 @@ const Navbar = () => {
           </Link>
           <Link href="/projects" className="text-gray-300 hover:text-white">
             Projects
+          </Link>
+          <Link href="/experience" className="text-gray-300 hover:text-white">
+            Work Experience
+          </Link>
+          <Link href="/skills" className="text-gray-300 hover:text-white">
+            Skills
           </Link>
           <Link href="/contact" className="text-gray-300 hover:text-white">
             Contact
