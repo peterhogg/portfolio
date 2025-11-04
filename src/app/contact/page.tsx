@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Contact - My Portfolio",
   description: "Get in touch with me.",
 };
@@ -18,7 +18,8 @@ const Contact = () => {
   const [emailError, setEmailError] = useState("");
 
   const validateEmail = (email: string) => {
-    const re = /^(([^<>()[\\]\\.,;:\s@\"]+(\.[^<>()[\\]\\.,;:\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =
+      /^(([^<>()[\\]\\.,;:\s@\"]+(\.[^<>()[\\]\\.,;:\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   };
 
@@ -69,10 +70,10 @@ const Contact = () => {
           <p className="text-lg">
             You can reach me at{" "}
             <a
-              href="mailto:hoggarth.peter@gmail.com"
+              href="mailto:me@peterhoggarth.com"
               className="text-blue-500 hover:underline"
             >
-              hoggarth.peter@gmail.com
+              me@peterhoggarth.com
             </a>
           </p>
           <p className="text-lg">
