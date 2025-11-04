@@ -1,11 +1,19 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-white text-lg font-bold">
+        <Link href="/" className="flex items-center text-white text-lg font-bold">
+          <Image
+            src="/peter.jpg"
+            alt="Peter Hoggarth"
+            width={40}
+            height={40}
+            className="rounded-full mr-4"
+          />
           Peter Hoggarth
         </Link>
         <div className="flex space-x-4">
