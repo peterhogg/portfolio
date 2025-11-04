@@ -20,7 +20,7 @@ const experiences = [
   },
   {
     role: "Senior Full Stack Developer",
-    duration: "September 2021 - Present",
+    duration: "September 2021 - April 2023",
     description: [
       "Produced multiple features and improvements to a MEAN stack application.",
       "Created NodeJS microservices to consume Kafka messages",
