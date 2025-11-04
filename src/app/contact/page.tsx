@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
-
-const metadata: Metadata = {
-  title: "Contact - My Portfolio",
-  description: "Get in touch with me.",
-};
+import { z } from "zod";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -17,10 +12,22 @@ const Contact = () => {
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const validateEmail = (email: string) => {
-    const re =
-      /^(([^<>()[\\]\\.,;:\s@\"]+(\.[^<>()[\\]\\.,;:\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+  const validateEmail = () => {
+    const emailSchema = z.email({
+      message: "Please enter a valid email address.",
+    });
+    const result = emailSchema.safeParse(email);
+    if (!result.success) {
+      setEmailError(result.error.issues[0].message);
+      return false;
+    } else {
+      setEmailError("");
+      return true;
+    }
+  };
+
+  const handleEmailBlur = () => {
+    validateEmail();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,8 +37,7 @@ const Contact = () => {
     setSuccess(false);
     setEmailError("");
 
-    if (!validateEmail(email)) {
-      setEmailError("Please enter a valid email address.");
+    if (!validateEmail()) {
       setSubmitting(false);
       return;
     }
@@ -70,10 +76,10 @@ const Contact = () => {
           <p className="text-lg">
             You can reach me at{" "}
             <a
-              href="mailto:me@peterhoggarth.com"
+              href="mailto:hoggarth.peter@gmail.com"
               className="text-blue-500 hover:underline"
             >
-              me@peterhoggarth.com
+              hoggarth.peter@gmail.com
             </a>
           </p>
           <p className="text-lg">
@@ -117,6 +123,7 @@ const Contact = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onBlur={handleEmailBlur}
               required
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
