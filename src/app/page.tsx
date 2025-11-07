@@ -34,19 +34,7 @@ export default function Home() {
         <section id="about" className="my-12">
           <h2 className="text-4xl font-bold mb-6 text-center">About Me</h2>
           <p className="text-xl text-center max-w-3xl mx-auto">
-            Dedicated lead software engineer with{" "}
-            {new Date().getFullYear() - new Date("2016-08-01").getFullYear()}{" "}
-            years of comprehensive technical expertise, specializing in the MEAN
-            stack. Passionate about continual learning and improvement. Adept at
-            mentoring and guiding junior team members to proficiency. I foster a
-            collaborative environment focused on growth and innovation. Proficient
-            in utilizing Git workflows for seamless collaboration and version
-            control. I work on infrastructure to create and modify containers
-            using Docker, as well as orchestrating deployments with Helm.
-            Experienced in Agile methodologies, I thrive in dynamic environments,
-            adapting quickly to evolving project requirements. Whether
-            collaborating remotely or on-site, I am adept at fostering effective
-            teamwork and communication to drive project success.
+            With 9 years of experience as a Lead Software Engineer, I specialize in the MEAN stack, building robust and scalable applications. I have a passion for mentoring and a proven ability to lead teams in fast-paced, Agile environments. My expertise in Docker, Helm, and Git allows me to streamline deployments and enhance team collaboration. I am a results-oriented leader, dedicated to driving project success through clear communication and a commitment to quality.
           </p>
         </section>
       </AnimatedSection>
