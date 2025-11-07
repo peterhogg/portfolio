@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { z } from "zod";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -70,100 +71,102 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto mt-8 px-4">
-      <section id="contact" className="my-8">
-        <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-        <div className="text-center mb-8">
-          <p className="text-lg">
-            You can reach me at{" "}
-            <a
-              href="mailto:me@peterhoggarth.com"
-              className="text-blue-500 hover:underline"
-            >
-              me@peterhoggarth.com
-            </a>
-          </p>
-          <p className="text-lg">
-            My GitHub profile is{" "}
-            <a
-              href="https://github.com/peterhogg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              here
-            </a>
-          </p>
-        </div>
-        <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onBlur={handleEmailBlur}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            {emailError && (
-              <p className="text-red-500 text-xs italic mt-2">{emailError}</p>
-            )}
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="message"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            ></textarea>
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              disabled={submitting}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400"
-            >
-              {submitting ? "Sending..." : "Send Message"}
-            </button>
-          </div>
-          {success && (
-            <p className="text-green-500 text-center mt-4">
-              Message sent successfully!
+      <AnimatedSection>
+        <section id="contact" className="my-8">
+          <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
+          <div className="text-center mb-8">
+            <p className="text-lg">
+              You can reach me at{" "}
+              <a
+                href="mailto:me@peterhoggarth.com"
+                className="text-blue-500 hover:underline"
+              >
+                me@peterhoggarth.com
+              </a>
             </p>
-          )}
-          {error && <p className="text-red-500 text-center mt-4">{error}</p>}
-        </form>
-      </section>
+            <p className="text-lg">
+              My GitHub profile is{" "}
+              <a
+                href="https://github.com/peterhogg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                here
+              </a>
+            </p>
+          </div>
+          <form className="max-w-lg mx-auto" onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label
+                htmlFor="name"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={handleEmailBlur}
+                required
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              {emailError && (
+                <p className="text-red-500 text-xs italic mt-2">{emailError}</p>
+              )}
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="message"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              ></textarea>
+            </div>
+            <div className="text-center">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400"
+              >
+                {submitting ? "Sending..." : "Send Message"}
+              </button>
+            </div>
+            {success && (
+              <p className="text-green-500 text-center mt-4">
+                Message sent successfully!
+              </p>
+            )}
+            {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+          </form>
+        </section>
+      </AnimatedSection>
     </div>
   );
 };

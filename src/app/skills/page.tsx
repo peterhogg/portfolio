@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SkillCategory from "@/components/SkillCategory";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Skills - My Portfolio",
@@ -9,15 +10,7 @@ export const metadata: Metadata = {
 const skillCategories = [
   {
     title: "Web Technologies",
-    skills: [
-      "JavaScript",
-      "Angular",
-      "RxJS",
-      "Bootstrap",
-      "HTML",
-      "CSS",
-      "SCSS",
-    ],
+    skills: ["JavaScript", "Angular", "RxJS", "Bootstrap", "HTML", "CSS", "SCSS"],
   },
   {
     title: "Programming Languages",
@@ -40,16 +33,7 @@ const skillCategories = [
   },
   {
     title: "Frameworks and Libraries",
-    skills: [
-      "Express",
-      "NestJS",
-      ".NET6.0",
-      "RxJS",
-      "Jasmine",
-      "Karma",
-      "Jest",
-      "Okta",
-    ],
+    skills: ["Express", "NestJS", ".NET6.0", "RxJS", "Jasmine", "Karma", "Jest", "Okta"],
   },
   {
     title: "Databases",
@@ -57,21 +41,23 @@ const skillCategories = [
   },
   {
     title: "AI",
-    skills: ["ChatGPT", "Claude", "Gemini", "Github Copilot", "Agentic AI"],
+    skills: ["ChatGPT", "Claude", "Gemini", "Copilot", "Agentic AI"],
   },
 ];
 
 const Skills = () => {
   return (
     <div className="container mx-auto mt-8 px-4">
-      <section id="skills" className="my-8">
-        <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <SkillCategory key={index} {...category} />
-          ))}
-        </div>
-      </section>
+      <AnimatedSection>
+        <section id="skills" className="my-8">
+          <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillCategories.map((category, index) => (
+              <SkillCategory key={index} {...category} />
+            ))}
+          </div>
+        </section>
+      </AnimatedSection>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Projects - My Portfolio",
@@ -19,14 +20,16 @@ const projects = [
 const Projects = () => {
   return (
     <div className="container mx-auto mt-8 px-4">
-      <section id="projects" className="my-8">
-        <h2 className="text-3xl font-bold mb-4">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
-      </section>
+      <AnimatedSection>
+        <section id="projects" className="my-8">
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+          </div>
+        </section>
+      </AnimatedSection>
     </div>
   );
 };
