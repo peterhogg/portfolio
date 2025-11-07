@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const skillCategories = [
   {
     title: "Web Technologies",
-    skills: ["JavaScript", "Angular", "RxJS", "Bootstrap", "HTML", "CSS", "SCSS"],
+    skills: ["JavaScript", "Angular", "React", "Next.js", "RxJS", "Bootstrap", "HTML", "CSS", "SCSS"],
   },
   {
     title: "Programming Languages",
@@ -41,7 +41,7 @@ const skillCategories = [
   },
   {
     title: "AI",
-    skills: ["ChatGPT", "Claude", "Gemini", "Copilot", "Agentic AI"],
+    skills: ["ChatGPT", "Claude", "Gemini", "GitHub Copilot", "Agentic AI"],
   },
 ];
 
