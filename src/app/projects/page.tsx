@@ -22,7 +22,10 @@ const Projects = () => {
     <div className="container mx-auto mt-8 px-4">
       <AnimatedSection>
         <section id="projects" className="my-8">
-          <h2 className="text-3xl font-bold mb-4">Projects</h2>
+          <h2 className="text-4xl font-bold mb-2 text-center">Projects</h2>
+          <p className="text-lg text-center text-gray-600 mb-8">
+            A showcase of my personal work.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <ProjectCard key={index} {...project} />

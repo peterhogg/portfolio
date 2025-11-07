@@ -73,7 +73,8 @@ const Contact = () => {
     <div className="container mx-auto mt-8 px-4">
       <AnimatedSection>
         <section id="contact" className="my-8">
-          <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
+          <h2 className="text-4xl font-bold mb-2 text-center">Contact Me</h2>
+          <p className="text-lg text-center text-gray-600 mb-8">Feel free to reach out for any inquiries.</p>
           <div className="text-center mb-8">
             <p className="text-lg">
               You can reach me at{" "}

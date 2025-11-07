@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ExperienceCard from "@/components/ExperienceCard";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Work Experience - My Portfolio",
@@ -53,14 +54,21 @@ const experiences = [
 const Experience = () => {
   return (
     <div className="container mx-auto mt-8 px-4">
-      <section id="experience" className="my-8">
-        <h2 className="text-3xl font-bold mb-4">Work Experience</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={index} {...experience} />
-          ))}
-        </div>
-      </section>
+      <AnimatedSection>
+        <section id="experience" className="my-8">
+          <h2 className="text-4xl font-bold mb-2 text-center">
+            Work Experience
+          </h2>
+          <p className="text-lg text-center text-gray-600 mb-8">
+            A summary of my professional experience.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {experiences.map((experience, index) => (
+              <ExperienceCard key={index} {...experience} />
+            ))}
+          </div>
+        </section>
+      </AnimatedSection>
     </div>
   );
 };
