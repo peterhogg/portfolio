@@ -15,6 +15,16 @@ const projects = [
     liveLink: "https://flappy-knight.hoggarth.xyz/",
     liveLinkText: "Play Now",
   },
+  {
+    title: ".NET Microservices",
+    description: "A collection of microservices built with .NET, following a microservice architecture.",
+    githubLink: "https://github.com/peterhogg/dotnet-microservices",
+  },
+  {
+    title: "Emailr",
+    description: "A simple service to send emails, built with Node.js and Express.",
+    githubLink: "https://github.com/peterhogg/emailr",
+  },
 ];
 
 const Projects = () => {
