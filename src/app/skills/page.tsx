@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import SkillCategory from "@/components/SkillCategory";
 
@@ -10,7 +9,15 @@ export const metadata: Metadata = {
 const skillCategories = [
   {
     title: "Web Technologies",
-    skills: ["JavaScript", "Angular", "RxJS", "Bootstrap", "HTML", "CSS", "SCSS"],
+    skills: [
+      "JavaScript",
+      "Angular",
+      "RxJS",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "SCSS",
+    ],
   },
   {
     title: "Programming Languages",
@@ -33,11 +40,24 @@ const skillCategories = [
   },
   {
     title: "Frameworks and Libraries",
-    skills: ["Express", "NestJS", ".NET6.0", "RxJS", "Jasmine", "Karma", "Jest", "Okta"],
+    skills: [
+      "Express",
+      "NestJS",
+      ".NET6.0",
+      "RxJS",
+      "Jasmine",
+      "Karma",
+      "Jest",
+      "Okta",
+    ],
   },
   {
     title: "Databases",
     skills: ["MongoDB", "MySQL", "PostGreSQL"],
+  },
+  {
+    title: "AI",
+    skills: ["ChatGPT", "Claude", "Gemini", "Github Copilot", "Agentic AI"],
   },
 ];
 

@@ -76,10 +76,10 @@ const Contact = () => {
           <p className="text-lg">
             You can reach me at{" "}
             <a
-              href="mailto:hoggarth.peter@gmail.com"
+              href="mailto:me@peterhoggarth.com"
               className="text-blue-500 hover:underline"
             >
-              hoggarth.peter@gmail.com
+              me@peterhoggarth.com
             </a>
           </p>
           <p className="text-lg">
