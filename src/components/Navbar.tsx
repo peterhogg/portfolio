@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import ThemeToggleButton from './ThemeToggleButton';
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
           />
           Peter Hoggarth
         </Link>
-        <div className="flex space-x-4">
+        <div className="flex items-center space-x-4">
           <Link href="/" className="text-gray-300 hover:text-white">
             Home
           </Link>
@@ -32,6 +33,7 @@ const Navbar = () => {
           <Link href="/contact" className="text-gray-300 hover:text-white">
             Contact
           </Link>
+          <ThemeToggleButton />
         </div>
       </div>
     </nav>

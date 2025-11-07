@@ -14,16 +14,16 @@ const FeaturedProjectCard: React.FC<ProjectCardProps> = ({
   liveLinkText,
 }) => {
   return (
-    <div className="border rounded-lg p-6 shadow-lg bg-white">
-      <h3 className="text-2xl font-bold mb-3 text-gray-800">{title}</h3>
-      <p className="text-gray-600 mb-5">{description}</p>
+    <div className="border rounded-lg p-6 shadow-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+      <h3 className="text-2xl font-bold mb-3 text-gray-800 dark:text-white">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-5">{description}</p>
       <div className="flex justify-end items-center gap-4">
         {githubLink && (
           <a
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
+            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300"
           >
             GitHub
           </a>

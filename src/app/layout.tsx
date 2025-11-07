@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.className} flex flex-col min-h-screen`}>
-        <Navbar />
-        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
