@@ -50,7 +50,8 @@ const Skills = () => {
     <div className="container mx-auto mt-8 px-4">
       <AnimatedSection>
         <section id="skills" className="my-8">
-          <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
+          <h2 className="text-4xl font-bold mb-2 text-center">Technical Skills</h2>
+          <p className="text-lg text-center text-gray-600 mb-8">A collection of my technical abilities and tools I use.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
               <SkillCategory key={index} {...category} />

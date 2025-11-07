@@ -6,13 +6,15 @@ interface SkillCategoryProps {
 
 const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills }) => {
   return (
-    <div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <ul className="list-disc list-inside">
+    <div className="border rounded-lg p-6 shadow-lg bg-white">
+      <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">{title}</h3>
+      <div className="flex flex-wrap justify-center gap-2">
         {skills.map((skill, index) => (
-          <li key={index}>{skill}</li>
+          <span key={index} className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full">
+            {skill}
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
