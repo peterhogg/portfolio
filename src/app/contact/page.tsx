@@ -8,6 +8,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -49,7 +50,7 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, honeypot }),
       });
 
       const data = await res.json();
@@ -59,6 +60,7 @@ const Contact = () => {
         setName("");
         setEmail("");
         setMessage("");
+        setHoneypot("");
       } else {
         setError(data.error || "Something went wrong");
       }
@@ -133,6 +135,23 @@ const Contact = () => {
               {emailError && (
                 <p className="text-red-500 text-xs italic mt-2">{emailError}</p>
               )}
+            </div>
+            <div className="mb-4" style={{ display: 'none' }}>
+              <label
+                htmlFor="honeypot"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                Don't fill this out
+              </label>
+              <input
+                type="text"
+                id="honeypot"
+                name="honeypot"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </div>
             <div className="mb-4">
               <label

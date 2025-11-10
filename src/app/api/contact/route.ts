@@ -5,7 +5,11 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const { name, email, message } = await req.json();
+  const { name, email, message, honeypot } = await req.json();
+
+  if (honeypot) {
+    return NextResponse.json({ success: true });
+  }
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
