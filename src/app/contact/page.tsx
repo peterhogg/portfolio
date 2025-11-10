@@ -64,7 +64,7 @@ const Contact = () => {
       } else {
         setError(data.error || "Something went wrong");
       }
-    } catch (error) {
+    } catch {
       setError("Something went wrong");
     } finally {
       setSubmitting(false);
@@ -141,7 +141,7 @@ const Contact = () => {
                 htmlFor="honeypot"
                 className="block text-gray-700 font-bold mb-2"
               >
-                Don't fill this out
+                Don&apos;t fill this out
               </label>
               <input
                 type="text"

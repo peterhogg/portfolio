@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       // IMPORTANT: Replace `yourdomain.com` with the domain you verified with Resend.
       from: 'Contact Form <noreply@peterhoggarth.com>',
       to: ['me@peterhoggarth.com'],
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
   }
 }
