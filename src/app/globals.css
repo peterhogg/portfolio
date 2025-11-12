@@ -11,6 +11,7 @@
   --foreground: #ffffff;
   color-scheme: dark;
 }
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
