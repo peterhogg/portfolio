@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { z } from "zod";
 import AnimatedSection from "@/components/AnimatedSection";
+import {
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 
-const Contact = () => {
+const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -13,6 +17,7 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const validateEmail = () => {
     const emailSchema = z.email({
@@ -32,51 +37,64 @@ const Contact = () => {
     validateEmail();
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError("");
-    setSuccess(false);
-    setEmailError("");
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      setSubmitting(true);
+      setError("");
+      setSuccess(false);
+      setEmailError("");
 
-    if (!validateEmail()) {
-      setSubmitting(false);
-      return;
-    }
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message, honeypot }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setSuccess(true);
-        setName("");
-        setEmail("");
-        setMessage("");
-        setHoneypot("");
-      } else {
-        setError(data.error || "Something went wrong");
+      if (!validateEmail()) {
+        setSubmitting(false);
+        return;
       }
-    } catch {
-      setError("Something went wrong");
-    } finally {
-      setSubmitting(false);
-    }
-  };
+
+      if (!executeRecaptcha) {
+        setError("reCAPTCHA not available");
+        setSubmitting(false);
+        return;
+      }
+
+      const token = await executeRecaptcha("contact_form");
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message, honeypot, token }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          setSuccess(true);
+          setName("");
+          setEmail("");
+          setMessage("");
+          setHoneypot("");
+        } else {
+          setError(data.error || "Something went wrong");
+        }
+      } catch {
+        setError("Something went wrong");
+      } finally {
+        setSubmitting(false);
+      }
+    },
+    [executeRecaptcha, name, email, message, honeypot]
+  );
 
   return (
     <div className="container mx-auto mt-8 px-4">
       <AnimatedSection>
         <section id="contact" className="my-8">
           <h2 className="text-4xl font-bold mb-2 text-center">Contact Me</h2>
-          <p className="text-lg text-center text-gray-600 mb-8">Feel free to reach out for any inquiries.</p>
+          <p className="text-lg text-center text-gray-600 mb-8">
+            Feel free to reach out for any inquiries.
+          </p>
           <div className="text-center mb-8">
             <p className="text-lg">
               You can reach me at{" "}
@@ -133,10 +151,12 @@ const Contact = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               {emailError && (
-                <p className="text-red-500 text-xs italic mt-2">{emailError}</p>
+                <p className="text-red-500 text-xs italic mt-2">
+                  {emailError}
+                </p>
               )}
             </div>
-            <div className="mb-4" style={{ display: 'none' }}>
+            <div className="mb-4" style={{ display: "none" }}>
               <label
                 htmlFor="honeypot"
                 className="block text-gray-700 font-bold mb-2"
@@ -183,7 +203,9 @@ const Contact = () => {
                 Message sent successfully!
               </p>
             )}
-            {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-center mt-4">{error}</p>
+            )}
           </form>
         </section>
       </AnimatedSection>
@@ -191,4 +213,25 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+const ContactPage = () => {
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  if (!recaptchaSiteKey) {
+    return (
+      <div className="container mx-auto mt-8 px-4 text-center">
+        <p className="text-red-500">
+          reCAPTCHA site key is not configured. Please set the
+          NEXT_PUBLIC_RECAPTCHA_SITE_KEY environment variable.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
+      <ContactForm />
+    </GoogleReCaptchaProvider>
+  );
+};
+
+export default ContactPage;
