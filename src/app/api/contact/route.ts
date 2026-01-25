@@ -3,9 +3,33 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+
+async function verifyRecaptcha(token: string) {
+  if (!token) {
+    return { success: false, score: 0, error: 'Missing reCAPTCHA token' };
+  }
+
+  const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `secret=${RECAPTCHA_SECRET_KEY}&response=${token}`,
+  });
+
+  const data = await response.json();
+  return data;
+}
 
 export async function POST(req: NextRequest) {
-  const { name, email, message, honeypot } = await req.json();
+  const { name, email, message, honeypot, token } = await req.json();
+
+  const recaptchaResponse = await verifyRecaptcha(token);
+
+  if (!recaptchaResponse.success || recaptchaResponse.score < 0.5) {
+    return NextResponse.json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
+  }
 
   if (honeypot) {
     return NextResponse.json({ success: true });
@@ -17,7 +41,6 @@ export async function POST(req: NextRequest) {
 
   try {
     const { error } = await resend.emails.send({
-      // IMPORTANT: Replace `yourdomain.com` with the domain you verified with Resend.
       from: 'Contact Form <noreply@peterhoggarth.com>',
       to: ['me@peterhoggarth.com'],
       subject: 'New message from your portfolio contact form',
