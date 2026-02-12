@@ -29,6 +29,8 @@ const skillCategories = [
       "Jenkins",
       "GitHub",
       "Grafana",
+      "Kubernetes",
+      "Helm"
     ],
   },
   {
