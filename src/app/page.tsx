@@ -9,11 +9,10 @@ export const metadata: Metadata = {
 };
 
 const featuredProject = {
-  title: "Flappy Knight",
-  description: "A game made in Godot, inspired by Flappy Bird.",
-  githubLink: "https://github.com/peterhogg/flappy-knight",
-  liveLink: "https://flappy-knight.hoggarth.xyz/",
-  liveLinkText: "Play Now",
+  title: "Map Illustrator",
+  description: "An AI-powered tool that transforms geographic maps into stylized illustrations using Google's Gemini model via Vercel AI SDK. Built with Next.js, React, and Leaflet for interactive mapping with geocoding support.",
+  liveLink: "https://map-illustrator.hoggarth.xyz",
+  liveLinkText: "View Project",
 };
 
 export default function Home() {
