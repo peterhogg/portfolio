@@ -10,7 +10,17 @@ export const metadata: Metadata = {
 const skillCategories = [
   {
     title: "Web Technologies",
-    skills: ["JavaScript", "Angular", "React", "Next.js", "RxJS", "Bootstrap", "HTML", "CSS", "SCSS"],
+    skills: [
+      "JavaScript",
+      "Angular",
+      "React",
+      "Next.js",
+      "RxJS",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "SCSS",
+    ],
   },
   {
     title: "Programming Languages",
@@ -21,6 +31,7 @@ const skillCategories = [
     skills: [
       "Docker",
       "Visual Studio Code",
+      "OpenCode",
       "WSL2",
       "Kafka",
       "Pulsar",
@@ -30,12 +41,21 @@ const skillCategories = [
       "GitHub",
       "Grafana",
       "Kubernetes",
-      "Helm"
+      "Helm",
     ],
   },
   {
     title: "Frameworks and Libraries",
-    skills: ["Express", "NestJS", ".NET6.0", "RxJS", "Jasmine", "Karma", "Jest", "Okta"],
+    skills: [
+      "Express",
+      "NestJS",
+      ".NET6.0",
+      "RxJS",
+      "Jasmine",
+      "Karma",
+      "Jest",
+      "Okta",
+    ],
   },
   {
     title: "Databases",
@@ -52,8 +72,12 @@ const Skills = () => {
     <div className="container mx-auto mt-8 px-4">
       <AnimatedSection>
         <section id="skills" className="my-8">
-          <h2 className="text-4xl font-bold mb-2 text-center">Technical Skills</h2>
-          <p className="text-lg text-center text-gray-600 mb-8">A collection of my technical abilities and tools I use.</p>
+          <h2 className="text-4xl font-bold mb-2 text-center">
+            Technical Skills
+          </h2>
+          <p className="text-lg text-center text-gray-600 mb-8">
+            A collection of my technical abilities and tools I use.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
               <SkillCategory key={index} {...category} />
