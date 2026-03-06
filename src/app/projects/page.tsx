@@ -9,6 +9,12 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    title: "Map Illustrator",
+    description: "AI-powered tool that transforms maps into stylized illustrations using Google's Gemini model via Vercel AI SDK. Built with Next.js, React, and Leaflet for interactive mapping with geocoding support.",
+    liveLink: "https://map-illustrator.hoggarth.xyz",
+    liveLinkText: "View Project",
+  },
+  {
     title: "Flappy Knight",
     description: "A game made in Godot, inspired by Flappy Bird.",
     githubLink: "https://github.com/peterhogg/flappy-knight",
