@@ -20,17 +20,6 @@ export default function Home() {
   return (
     <div className="container mx-auto mt-12 px-4">
       <AnimatedSection>
-        <section className="text-center my-12">
-          <Image
-            src="/peter.jpg"
-            alt="Hero Icon"
-            width={150}
-            height={150}
-            className="mx-auto rounded-full mb-4"
-          />
-        </section>
-      </AnimatedSection>
-      <AnimatedSection>
         <section id="about" className="my-12">
           <h2 className="text-4xl font-bold mb-6 text-center">About Me</h2>
           <p className="text-xl text-center max-w-3xl mx-auto">
