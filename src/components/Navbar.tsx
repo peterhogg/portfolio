@@ -36,9 +36,6 @@ const Navbar = () => {
           <Link href="/" className="text-gray-300 hover:text-white">
             Home
           </Link>
-          <Link href="/blog" className="text-gray-300 hover:text-white">
-            Blog
-          </Link>
           <Link href="/projects" className="text-gray-300 hover:text-white">
             Projects
           </Link>
@@ -47,6 +44,9 @@ const Navbar = () => {
           </Link>
           <Link href="/skills" className="text-gray-300 hover:text-white">
             Skills
+          </Link>
+          <Link href="/blog" className="text-gray-300 hover:text-white">
+            Blog
           </Link>
           <Link href="/contact" className="text-gray-300 hover:text-white">
             Contact
@@ -105,13 +105,6 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="/blog"
-            className="text-gray-300 hover:text-white text-2xl"
-            onClick={() => setIsOpen(false)}
-          >
-            Blog
-          </Link>
-          <Link
             href="/projects"
             className="text-gray-300 hover:text-white text-2xl"
             onClick={() => setIsOpen(false)}
@@ -131,6 +124,13 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             Skills
+          </Link>
+          <Link
+            href="/blog"
+            className="text-gray-300 hover:text-white text-2xl"
+            onClick={() => setIsOpen(false)}
+          >
+            Blog
           </Link>
           <Link
             href="/contact"
