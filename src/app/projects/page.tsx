@@ -10,9 +10,11 @@ export const metadata: Metadata = {
 const projects = [
   {
     title: "Map Illustrator",
-    description: "AI-powered tool that transforms maps into stylized illustrations using Google's Gemini model via Vercel AI SDK. Built with Next.js, React, and Leaflet for interactive mapping with geocoding support.",
+    description:
+      "AI-powered tool that transforms maps into stylized illustrations using Google's Gemini model via Vercel AI SDK. Built with Next.js, React, and Leaflet for interactive mapping with geocoding support.",
     liveLink: "https://map-illustrator.hoggarth.xyz",
     liveLinkText: "View Project",
+    githubLink: "https://github.com/peterhogg/Map-Illustrator",
   },
   {
     title: "Flappy Knight",
@@ -23,12 +25,14 @@ const projects = [
   },
   {
     title: ".NET Microservices",
-    description: "A collection of microservices built with .NET, following a microservice architecture.",
+    description:
+      "A collection of microservices built with .NET, following a microservice architecture.",
     githubLink: "https://github.com/peterhogg/dotnet-microservices",
   },
   {
     title: "Emailr",
-    description: "A simple service to send emails, built with Node.js and Express.",
+    description:
+      "A simple service to send emails, built with Node.js and Express.",
     githubLink: "https://github.com/peterhogg/emailr",
   },
 ];
